@@ -26,7 +26,7 @@ def calculate():
         try:
             result = eval(equation)
         except:
-            result = "Error
+            result = "Error"
             equation = ""
     labe_result.config(text=result)
 
