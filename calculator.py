@@ -7,13 +7,27 @@ root.geometry("570x600+100+200")
 root.resizable(False, False)
 root.configure(bg="#17161b")
 
+equation = ""
+
+def show(value):
+    global equation
+    equation += value
+    labe_result.config(text=equation)
+
+def clear():
+    global equation
+    equation = ""
+    labe_result.config(text=equation)
+
 #pantalla de la calculadora
 labe_result = Label(root, width=25, height=2, text="", font=("arial", 30))
 labe_result.pack()
 
 #Fila 1
-Button(root, text="C", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#3697f5").place(x=10, y=100)
-Button(root, text="/", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=150, y=100)
+Button(root, text="C", width=5, height=1, font=("arial", 30, "bold"), 
+    bd=1, fg="#fff", bg="#3697f5", command=lambda: clear()).place(x=10, y=100)
+Button(root, text="/", width=5, height=1, font=("arial", 30, "bold"), 
+    bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("/")).place(x=150, y=100)
 Button(root, text="%", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=290, y=100)
 Button(root, text="*", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=430, y=100)
 
@@ -33,8 +47,10 @@ Button(root, text="+", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="
 Button(root, text="1", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=10, y=400)
 Button(root, text="2", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=150, y=400)
 Button(root, text="3", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=290, y=400)
+
 Button(root, text="0", width=11, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=10, y=500)
 
+#Fila 5
 Button(root, text=".", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36").place(x=290, y=500)
 Button(root, text="=", width=5, height=3, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#fe9037").place(x=430, y=400)
 
