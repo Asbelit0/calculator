@@ -19,19 +19,26 @@ def clear():
     equation = ""
     labe_result.config(text=equation)
 
+def calculate():
+    global equation
+    result = ""
+    if equation != "":
+        try:
+            result = eval(equation)
+        except:
+            result = "Error"
+            equation = ""
+    labe_result.config(text=result)
+
 #pantalla de la calculadora
 labe_result = Label(root, width=25, height=2, text="", font=("arial", 30))
 labe_result.pack()
 
 #Fila 1
-Button(root, text="C", width=5, height=1, font=("arial", 30, "bold"), 
-    bd=1, fg="#fff", bg="#3697f5", command=lambda: clear()).place(x=10, y=100)
-Button(root, text="/", width=5, height=1, font=("arial", 30, "bold"), 
-    bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("/")).place(x=150, y=100)
-Button(root, text="%", width=5, height=1, font=("arial", 30, "bold"), 
-    bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("%")).place(x=290, y=100)
-Button(root, text="*", width=5, height=1, font=("arial", 30, "bold"), 
-    bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("*")).place(x=430, y=100)
+Button(root, text="C", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#3697f5", command=lambda: clear()).place(x=10, y=100)
+Button(root, text="/", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("/")).place(x=150, y=100)
+Button(root, text="%", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("%")).place(x=290, y=100)
+Button(root, text="*", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("*")).place(x=430, y=100)
 
 #Fila 2
 Button(root, text="7", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36", command=lambda: show("7")).place(x=10, y=200)
@@ -54,6 +61,6 @@ Button(root, text="0", width=11, height=1, font=("arial", 30, "bold"), bd=1, fg=
 
 #Fila 5
 Button(root, text=".", width=5, height=1, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#2a2d36", command=lambda: show(".")).place(x=290, y=500)
-Button(root, text="=", width=5, height=3, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#fe9037", command=lambda: show("=")).place(x=430, y=400)
+Button(root, text="=", width=5, height=3, font=("arial", 30, "bold"), bd=1, fg="#fff", bg="#fe9037", command=lambda: calculate()).place(x=430, y=400)
 
 root.mainloop()
