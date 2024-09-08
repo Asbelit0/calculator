@@ -1,4 +1,4 @@
-## Calculator
+# Calculator
 
 <div align="center">
 <img src="https://imgur.com/RSXHbjC.png">
